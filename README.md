@@ -6,8 +6,10 @@ after a smoke test per `(version, platform)`.
 
 ## Platforms
 
-Currently `linux/amd64` and `linux/arm64`. darwin and windows are staged for
-follow-up passes (macOS/Windows CI minutes are kept off until Linux is green).
+`linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`,
+`windows/amd64`, `windows/arm64`. Linux and macOS ship a versioned wrapper
+dir (`strip_components: 1`); the Windows zip is flat with `bin/gh.exe` at
+the root (`strip_components: 0`).
 
 ## Editing
 
