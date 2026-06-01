@@ -1,12 +1,19 @@
-# Single binary `gh`. Branch on the typed OS constant — ocx.platform() was removed.
+# tests/smoke.star — stable across upstream releases.
+# Single binary `gh`. Branch on the typed OS constant (never ocx.platform()).
 GH = "gh.exe" if ocx.target_platform.os == ocx.os.Windows else "gh"
 
-r_version = ocx.run(GH, "--version")
-expect.ok(r_version)
-expect.eq(r_version.exit_code, 0)
-expect.contains(r_version.stdout, "gh version")
+# Tier 1 + 2: liveness + version shape.
+# `gh --version` resolves on the composed PATH and prints semver to stdout.
+r = ocx.run(GH, "--version")
+expect.ok(r)
+expect.matches(r.stdout, r"\d+\.\d+\.\d+")
 
-r_help = ocx.run(GH, "--help")
-expect.eq(r_help.exit_code, 0)
-expect.contains(r_help.stdout, "Work seamlessly with GitHub")
-expect.contains(r_help.stdout, "USAGE")
+# Tier 3: subcommand presence — exit-code probes, no network, no help prose.
+# Subcommand names are a contract; their descriptions are not. `gh help <sub>`
+# renders offline and exits 0 only when the surface exists.
+expect.eq(ocx.run(GH, "help", "pr").exit_code, 0)
+expect.eq(ocx.run(GH, "help", "issue").exit_code, 0)
+expect.eq(ocx.run(GH, "help", "release").exit_code, 0)
+expect.eq(ocx.run(GH, "help", "api").exit_code, 0)
+
+# Tier 4: not applicable — metadata.json declares PATH only (no non-PATH env var).

@@ -1,13 +1,6 @@
 #:schema https://ocx.sh/schemas/project/v1.json
 # OCX project toolchain for the mirror-gh sibling repo.
-#
-# NOTE: the floating `:0.4.0-dev` tag currently resolves to a regressed
-# build (v0.3.0 codegen that emits a cargo-workspace CI workflow). Pinned
-# to the known-good build that mirror-oras uses until `0.4.0-dev` is fixed.
-# Revert to `:0.4.0-dev` + `ocx --remote upgrade` once the tag is healthy.
 
 [tools]
-cli = "dev.ocx.sh/ocx/cli:0.3.5-dev_20260601143017"
-mirror = "dev.ocx.sh/ocx/mirror:0.3.5-dev_20260601143017"
-
-[group]
+cli = "dev.ocx.sh/ocx/cli:0.3.5-dev"
+mirror = "dev.ocx.sh/ocx/mirror:0.3.5-dev"
