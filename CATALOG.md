@@ -1,0 +1,23 @@
+---
+title: GitHub CLI
+description: GitHub on the command line — issues, pull requests, releases, and workflows
+keywords: gh,github,cli,git,devops,ci,pull-request,issues
+---
+
+# GitHub CLI
+
+`gh` is GitHub's official command-line tool. It brings GitHub to your terminal —
+work with issues, pull requests, releases, GitHub Actions workflows, gists, and
+repositories without leaving the command line. It authenticates against
+github.com and GitHub Enterprise Server alike, and powers scripting through the
+`gh api` command.
+
+## What's included
+
+- **gh** — the GitHub command-line client
+
+## Links
+
+- [GitHub CLI Documentation](https://cli.github.com/manual/)
+- [GitHub CLI on GitHub](https://github.com/cli/cli)
+- [GitHub CLI Releases](https://github.com/cli/cli/releases)
