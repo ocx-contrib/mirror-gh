@@ -2,5 +2,5 @@
 # OCX project toolchain for the mirror-gh sibling repo.
 
 [tools]
-cli = "dev.ocx.sh/ocx/cli:0.3.6-dev"
-mirror = "dev.ocx.sh/ocx/mirror:0.3.6-dev"
+cli = "dev.ocx.sh/ocx/cli:0.4.0-dev"
+mirror = "dev.ocx.sh/ocx/mirror:0.4.0-dev"
